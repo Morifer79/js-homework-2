@@ -22,6 +22,5 @@ function onClick(e) {
 		if (e.code === 'Escape') gallery.close();
 	});
 
-//TODO дальше нужно или думать, или спать...)
-	const lightbox = new SimpleLightbox('.gallery a', {captionType: 'alt', captionDelay: 250});
+	const lightbox = new SimpleLightbox('.gallery a', {captionData: 'alt', captionDelay: 250});
 }
