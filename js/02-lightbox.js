@@ -18,9 +18,5 @@ function onClick(e) {
 	e.preventDefault();
 	if (e.target.nodeName !== 'IMG') return;
 
-	gallery.addEventListener('keydown', (e) => {
-		if (e.code === 'Escape') gallery.close();
-	});
-
-	const lightbox = new SimpleLightbox('.gallery a', {captionData: 'alt', captionDelay: 250});
+new SimpleLightbox('.gallery a', {captionData: 'alt', captionDelay: 250});
 }
