@@ -18,15 +18,20 @@ function createMarkup(elements) {
 
 gallery.innerHTML = createMarkup(galleryItems);
 gallery.addEventListener('click', onClick);
+let instance;
 
 function onClick(e) {
 	e.preventDefault();
 	if (e.target.nodeName !== 'IMG') return;
 
-	const instance = basicLightbox.create(`<img src="${e.target.dataset.source}" width="800" height="600">`);
+	instance = basicLightbox.create(`<img src="${e.target.dataset.source}" width="800" height="600">`);
 	instance.show();
+	document.addEventListener("keydown", closeImage);
+}
 
-	gallery.addEventListener('keydown', (e) => {
-		if (e.code === 'Escape') instance.close();
-	});
+function closeImage(e){
+	if (e.code === 'Escape') {
+		instance.close();
+		document.removeEventListener("keydown", closeImage);
+	}
 }

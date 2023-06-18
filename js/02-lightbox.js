@@ -12,11 +12,5 @@ function createMarkup(elements) {
 }
 
 gallery.innerHTML = createMarkup(galleryItems);
-gallery.addEventListener('click', onClick);
-
-function onClick(e) {
-	e.preventDefault();
-	if (e.target.nodeName !== 'IMG') return;
 
 new SimpleLightbox('.gallery a', {captionData: 'alt', captionDelay: 250});
-}
